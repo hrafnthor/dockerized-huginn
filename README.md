@@ -13,3 +13,6 @@ set with the HUGIN_DOMAINS value, seperated with a ",".
 Traefik will automatically configure a Lets Encrypt certificate for all the set 
 domains.
 Comment out HSTS line in docker-compose when forcing TLS.
+
+A password will be generated for the Traefik and phpmyadmin dashboards and piped
+out to a file called auth-password.txt. Copy the contents and delete the file!

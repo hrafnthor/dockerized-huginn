@@ -2,11 +2,11 @@
 #!/bin/bash
 
 # Create the user that will contain the configuration for Huginn
-adduser huginn
-usermod -aG sudo huginn
+#adduser huginn
+#usermod -aG sudo huginn
 
 # Create the directory that will contain all the relevant configs
-COMPOSE_DIR="/home/huginn/compose"
+COMPOSE_DIR="./compose"
 mkdir -p $COMPOSE_DIR
 
 # Traefik needs a file to store SSL/TLS keys and certificates.

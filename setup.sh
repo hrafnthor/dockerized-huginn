@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 # Create the user that will contain the configuration for Huginn
@@ -22,7 +21,7 @@ sed -i -e "s|^HUGINN_INVITATION_CODE=.*|HUGINN_INVITATION_CODE=`cat /dev/urandom
 
 apt-get install -y apache2-utils
 BASIC_AUTH_PASSWORD="`cat /dev/urandom | tr -dc '[:alnum:]' | head -c10`"
-BASIC_AUTH="`printf '%s\n' "$BASIC_AUTH_PASSWORD" | tee /root/compose/auth-password.txt | htpasswd -in admin`"
+BASIC_AUTH="`printf '%s\n' "$BASIC_AUTH_PASSWORD" | tee ./auth-password.txt | htpasswd -in admin`"
 sed -i -e "s|^BASIC_AUTH=.*|BASIC_AUTH=$BASIC_AUTH|" .env
 
 # Start up the containers

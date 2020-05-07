@@ -7,6 +7,7 @@
 # Create the volume used to store the custom scripts used with 
 # the shell agent in Huginn
 mkdir /opt/scripts
+# todo: Move the contents of ./scripts to /opt/scripts
 
 # Traefik needs a file to store SSL/TLS keys and certificates.
 touch ./acme.json

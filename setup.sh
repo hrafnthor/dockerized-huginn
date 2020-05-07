@@ -13,6 +13,9 @@ mkdir /opt/scripts
 touch ./acme.json
 chmod 0600 ./acme.json
 
+# Stage the .env template file for modification
+cp .env-template .env
+
 # Use the hostname of the server as the main domain.
 sed -i -e "s|^TRAEFIK_DOMAINS=.*|TRAEFIK_DOMAINS=`hostname -f`|" .env
 sed -i -e "s|^HUGINN_DOMAINS=.*|HUGINN_DOMAINS=`hostname -f`|" .env

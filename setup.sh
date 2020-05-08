@@ -4,10 +4,9 @@
 #adduser huginn
 #usermod -aG sudo huginn
 
-# Create the volume used to store the custom scripts used with 
-# the shell agent in Huginn
-mkdir /opt/scripts
-# todo: Move the contents of ./scripts to /opt/scripts
+# Copy scripts to the root tree where it will be mounted as a volume
+# for Huginn during docker compose. Allows Huginn to execute the scripts.
+cp ./scripts /opt/
 
 # Traefik needs a file to store SSL/TLS keys and certificates.
 touch ./acme.json

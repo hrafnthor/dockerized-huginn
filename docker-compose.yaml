@@ -28,6 +28,10 @@ services:
     image: traefik:v1.7.24
     command: --api --docker --acme.email="${ACME_EMAIL}"
     restart: always
+    logging:
+        driver: journald
+        options:
+            tag: traefik
     networks:
       - backend
       - frontend
@@ -66,6 +70,10 @@ services:
     # (eg, 10.3.1) and not major updates (eg, 10.4).
     image: mariadb:10.3
     restart: always
+    logging:
+        driver: journald
+        options:
+            tag: huginn-db
     networks:
       - backend
     volumes:
@@ -84,6 +92,10 @@ services:
     depends_on:
       - huginn-db
     restart: always
+    logging:
+        driver: journald
+        options:
+            tag: huginn
     networks:
       - frontend
       - backend
@@ -133,6 +145,10 @@ services:
     depends_on:
       - huginn-db
     restart: always
+    logging:
+        driver: journald
+        options:
+            tag: phpmyadmin
     networks:
       - frontend
       - backend
@@ -158,6 +174,10 @@ services:
   mail:
     image: bytemark/smtp
     restart: always
+    logging:
+        driver: journald
+        options:
+            tag: mail
     networks:
       - frontend
     environment:

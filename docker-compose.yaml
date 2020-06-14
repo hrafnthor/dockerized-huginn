@@ -103,6 +103,8 @@ services:
       - /opt/scripts:/opt/
     environment:
       # Don't create the default "admin" user with password "password".
+      # In that case, the admin flag can be flipped through the user 
+      # of phpmyadmin web interface or through cli against db.
       DO_NOT_SEED: "true"
       # Database configuration
       MYSQL_PORT_3306_TCP_ADDR: huginn-db

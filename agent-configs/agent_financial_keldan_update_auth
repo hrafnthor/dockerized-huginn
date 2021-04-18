@@ -1,0 +1,29 @@
+#
+# 	Configurations for token update with Keldan
+#
+###########################################################################
+
+Name: Update authorization token
+Type: WebsiteAgent
+Schedule: Never
+Controllers: Trigger financial info update
+Keep events: 1 hour
+Sources: None
+Propagate immediately: No
+Receivers: Fetch trading data | ICEAIR
+Scenarios: 
+
+Options:
+
+{
+  "expected_update_period_in_days": "2",
+  "url": "http://keldan.is/kelda/updateToken",
+  "type": "html",
+  "mode": "all",
+  "extract": {
+    "token": {
+      "xpath": "/html/body/p/text()",
+      "value": "."
+    }
+  }
+}

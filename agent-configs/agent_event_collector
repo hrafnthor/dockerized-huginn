@@ -1,0 +1,20 @@
+#
+#   Configurations for event collection in preparation of email sending
+#
+###########################################################################
+
+Name: Collect events
+Type: DigestAgent
+Schedule: Never
+Controllers: Trigger digest | 17:00, Trigger digest | 12:00, Trigger digest | 9:00
+Keep events: 6 hours
+Sources: all the the ones that link to this one
+Propagate immediately: No
+Receivers: Flatten collection
+Scenarios: 
+
+Options:
+
+Message: {{ events | map: 'message' | join: ' '}}
+Expected receive period in days: 1
+Retain events: 0

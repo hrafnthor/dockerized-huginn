@@ -1,0 +1,24 @@
+#
+#   Configurations for trading data formatting in HTML
+#
+###########################################################################
+
+Name: Format stocks | HTML
+Type: EventFormattingAgent
+Schedule: Never
+Controllers: None
+Keep events: 1 day
+Sources: Format trading data | JSON
+Propagate immediately: No
+Receivers: Collect events
+Scenarios: 
+
+Options:
+
+{
+  "instructions": {
+    "message": "<h3>{{symbol}}</h3><h4>{{date}}</h4><p><ul><li>24 hour change: {{day_change_value}} ({{day_change_percentage}})</li><li>7 day change: {{week_change_value}} ({{week_change_percentage}})</li><li>30 day change: {{month_change_value}} ({{month_change_percentage}})</li><li>12 month change: {{month_12_change_value}} ({{month_12_change_percentage}})</li><</ul></p>"
+  },
+  "matchers": [],
+  "mode": "clean"
+}

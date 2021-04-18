@@ -1,0 +1,20 @@
+#
+#   Configurations for sky domain checker
+#
+###########################################################################
+
+Name: SKY status checker
+Type: HttpStatusAgent
+Schedule: Never
+Controllers: Trigger domain status checks
+Keep events: 1 day
+Sources: None
+Propagate immediately: No
+Receivers: Process ping | JSON
+Scenarios: 
+
+Options:
+
+Url: https://sky.hth.is
+Disable redirect follow: False
+Changes only: Manual input

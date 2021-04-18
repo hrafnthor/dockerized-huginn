@@ -1,0 +1,31 @@
+#
+#   Configurations for trading data fetch for IcelandAir
+#
+###########################################################################
+
+Name: Fetch trading data | ICEAIR
+Type: WebsiteAgent
+Schedule: Never
+Controllers: None
+Keep events: 1 hour
+Sources: Update authorization token
+Propagate immediately: No
+Receivers: Flatten trading data | JSON
+Scenarios: Fetch financial information
+
+Options:
+
+{
+  "expected_update_period_in_days": "2",
+  "url": "https://api.livemarketdata.com/v1/market_data/v1/exchanges/*/markets/*/tradables/ICEAIR/statistics/?trading_date={{ 'now' | date: '%Y-%m-%d'}}",
+  "type": "json",
+  "mode": "on_change",
+  "extract": {
+    "data": {
+      "path": "."
+    }
+  },
+  "headers": {
+    "Authorization": "Bearer {{token}}"
+  }
+}

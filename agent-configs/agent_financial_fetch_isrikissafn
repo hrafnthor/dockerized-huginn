@@ -1,0 +1,25 @@
+#
+# 	Configurations for financial information for IS Rikissafn fetch
+#
+###########################################################################
+
+Name: Fetch 30 day info for IS Rikissafn
+Type: ShellCommandAgent
+Schedule: Never
+Controllers: Trigger financial info update
+Keep events: 6 hour
+Sources: None
+Propagate immediately: No
+Receivers: Flatten fund data | JSON
+Scenarios: Fetch financial information
+
+Options:
+
+{
+  "path": "/opt/",
+  "command": "./fetch_fund_info_last_30_days.sh  isl_rkssafn  {%  credential ISLSJODIR %}",
+  "unbundle": false,
+  "suppress_on_failure": false,
+  "suppress_on_empty_output": false,
+  "expected_update_period_in_days": 1
+}

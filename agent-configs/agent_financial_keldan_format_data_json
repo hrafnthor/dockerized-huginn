@@ -1,0 +1,21 @@
+#
+#   Configurations for trading data formatting
+#
+###########################################################################
+
+Name: Format trading data | JSON
+Type: JqAgent
+Schedule: Never
+Controllers: None
+Keep events: 1 day
+Sources: Process trading data | JSON
+Propagate immediately: No
+Receivers: Format stocks | HTML
+Scenarios: Fetch financial information
+
+Options:
+
+{
+  "filter": "{ symbol: .symbol, date: .date, last_price: .last_price, day_change_value, day_change_percentage: (.day_change_percentage | .*100 | tostring | .[0:5] | (. + \"%\")), month_12_change_value, month_12_change_percentage: (.month_12_change_percentage | .*100 | tostring | .[0:5] | (. + \"%\")), month_change_value, month_change_percentage: (.month_change_percentage | .*100 | tostring | .[0:5] | (. + \"%\")),week_change_value,  week_change_percentage:  (.week_change_percentage | .*100 | tostring | .[0:5] | (. + \"%\")),  year_change_value, year_change_percentage:  (.year_change_percentage | .*100 | tostring | .[0:5] | (. + \"%\")) }",
+  "variables": {}
+}

@@ -1,0 +1,21 @@
+#
+# 	Configurations for financial information processing
+#
+###########################################################################
+
+Name: Process fund data | JSON
+Type: JqAgent
+Schedule: Never
+Controllers: None
+Keep events: 1 hour
+Sources: Flatten fund data | JSON
+Propagate immediately: No
+Receivers: Formatt fund data | JSON
+Scenarios: Fetch financial information
+
+Options:
+
+{
+  "filter": ".data | {name, date: .data[-1][0] | (. / 1000 | strftime(\"%Y-%m-%d\")), current_index: .data[-1][1], day_change: (.data | map(.[1]) | (.[-1] - .[-2]) / .[-1]), week_change: (.data | map(.[1]) |  (.[-1] -.[-7] ) / .[-1]), month_change: (.data | map(.[1]) |  (.[-1] -.[0] ) / .[-1])}",
+  "variables": {}
+}

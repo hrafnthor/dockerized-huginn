@@ -1,0 +1,20 @@
+#
+# 	Configurations for financial information flattening
+#
+###########################################################################
+
+Name: Flatten fund data | JSON
+Type: JsonParseAgent
+Schedule: Never
+Controllers: None
+Keep events: 1 hour
+Sources: Fetch 30 day info for Lausafjarssjodur, Fetch 30 day info for IS Rikissafn
+Propagate immediately: No
+Receivers: Process fund data | JSON
+Scenarios: Fetch financial information
+
+Options:
+
+Data: {{output}}
+Data key: data
+Mode: clean

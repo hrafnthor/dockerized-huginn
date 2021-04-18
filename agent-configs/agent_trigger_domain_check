@@ -1,0 +1,21 @@
+#
+#   Configurations for domain check trigger
+#
+###########################################################################
+
+Name: Trigger domain status checks
+Type: CommanderAgent
+Schedule: Never
+Controllers: Trigger update | 8:00, Trigger update | 11:00, Trigger update | 16:00
+Control targets: BLOG status checker, SKY status checker
+Keep events: 6 hours
+Sources: None
+Propagate immediately: No
+Receivers: None
+Scenarios: None
+
+Options:
+
+{
+  "action": "run"
+}

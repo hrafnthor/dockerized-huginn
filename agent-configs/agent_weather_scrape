@@ -1,0 +1,37 @@
+#
+# 	Configurations for weather information scraping
+#
+###########################################################################
+
+Name: Scrape weather | Reykjavík
+Type: Website Agent
+Schedule: Never
+Controllers: Trigger update | 8:00
+Keep events: 1 hour
+Sources: None
+Propagate immediately: No
+Receivers: Format weather | HTML
+Scenarios: None
+
+Options:
+
+{
+  "expected_update_period_in_days": "2",
+  "url": "https://www.vedur.is/vedur/spar/textaspar/landshlutaspar/",
+  "type": "html",
+  "mode": "all",
+  "extract": {
+    "title": {
+      "xpath": "/html/body/div/div[2]/div/div[1]/div/div[1]/h2/text()",
+      "value": "."
+    },
+    "forecast": {
+      "xpath": "/html/body/div/div[2]/div/div[1]/div/div[1]/p/text()",
+      "value": "."
+    },
+    "range": {
+      "xpath": "/html/body/div/div[2]/div/div[1]/div/div[1]/p/span/text()",
+      "value": "."
+    }
+  }
+}

@@ -1,0 +1,21 @@
+#
+# 	Configurations for financial information formatting
+#
+###########################################################################
+
+Name: Format fund data | JSON
+Type: JqAgent
+Schedule: Never
+Controllers: None
+Keep events: 1 hour
+Sources: Process fund data | JSON
+Propagate immediately: No
+Receivers: Formatt fund data | HTML
+Scenarios: Fetch financial information
+
+Options:
+
+{
+  "filter": "{name, date, current_index, day_change: (.day_change | .*100 | tostring | .[0:4] | (. + \"%\")), week_change: (.week_change | .*100 | tostring | .[0:4] | (. + \"%\")), month_change: (.month_change | .*100 | tostring | .[0:4] | (. + \"%\")) }",
+  "variables": {}
+}

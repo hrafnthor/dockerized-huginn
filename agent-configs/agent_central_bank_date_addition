@@ -1,0 +1,24 @@
+#
+#   Configurations for date field addition to data
+#
+###########################################################################
+
+Name: Add date field
+Type: EventFormattingAgent
+Schedule: Never
+Controllers: None
+Keep events: 6 hours
+Sources: Scrape inflation & FOREX
+Propagate immediately: No
+Receivers: Format Index & FOREX | HTML
+Scenarios: Fetch financial information
+
+Options:
+
+{
+  "instructions": {
+    "date": "{{ 'now' | date: '%Y-%m-%d'}}"
+  },
+  "matchers": [],
+  "mode": "merge"
+}

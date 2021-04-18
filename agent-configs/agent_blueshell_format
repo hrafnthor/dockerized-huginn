@@ -1,0 +1,24 @@
+#
+# 	Configurations for blueshell information formatting
+#
+###########################################################################
+
+Name: Format blueshell advice
+Type: EventFormattingAgent
+Schedule: Never
+Controllers: None
+Keep events: 6 hour
+Sources: Scrape blueshell advice
+Propagate immediately: No
+Receivers: Collect events
+Scenarios: None
+
+Options:
+
+{
+  "instructions": {
+    "message": "<h3>Þörungaeitur</h3><p>{{advice}}</p>"
+  },
+  "matchers": [],
+  "mode": "clean"
+}

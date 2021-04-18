@@ -1,0 +1,21 @@
+#
+#   Configurations for trading data processing
+#
+###########################################################################
+
+Name: Process trading data | JSON
+Type: JqAgent
+Schedule: Never
+Controllers: None
+Keep events: 1 hour
+Sources: Flatten trading data | JSON
+Propagate immediately: No
+Receivers: Format trading data | JSON
+Scenarios: Fetch financial information
+
+Options:
+
+{
+  "filter": "{ symbol: .symbol, date: (now|strflocaltime(\"%Y-%m-%d\")), last_price: .last_price, day_change_value: .yesterdays_price_change_nom, day_change_percentage: .yesterdays_price_change_per, week_change_value: .days7_price_change_nom, week_change_percentage: .days7_price_change_per, month_change_value: .weeks4_price_change_nom, month_change_percentage: .weeks4_price_change_per, year_change_value: .year_price_change_nom, year_change_percentage: .year_price_change_per, month_12_change_value: .months12_price_change_nom, month_12_change_percentage: .months12_price_change_per}",
+  "variables": {}
+}

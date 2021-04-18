@@ -1,0 +1,24 @@
+#
+#   Configurations for domain check data formatting in html
+#
+###########################################################################
+
+Name: Format ping | HTML
+Type: EventFormattingAgent
+Schedule: Never
+Controllers: 
+Keep events: 6 hours
+Sources: Process ping | JSON
+Propagate immediately: No
+Receivers: Collect events
+Scenarios: 
+
+Options:
+
+{
+  "instructions": {
+    "message": "<h4>Þjónusta</h4><h5>{{ url }}</h5><p>{{ message }}</p>"
+  },
+  "matchers": [],
+  "mode": "clean"
+}

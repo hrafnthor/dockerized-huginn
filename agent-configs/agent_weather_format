@@ -1,0 +1,24 @@
+#
+# 	Configurations for weather information formatting
+#
+###########################################################################
+
+Name: Format weather | HTML
+Type: EventFormattingAgent
+Schedule: Never
+Controllers: None
+Keep events: 6 hour
+Sources: Scrape weather | Reykjavik
+Propagate immediately: No
+Receivers: Collect events
+Scenarios: None
+
+Options:
+
+{
+  "instructions": {
+    "message": "<h3>{{ title }}</h3><h4>{{ range }}</h4><p>{{ forecast }}</p>"
+  },
+  "matchers": [],
+  "mode": "clean"
+}

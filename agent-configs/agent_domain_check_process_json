@@ -1,0 +1,21 @@
+#
+#   Configurations for domain check data processing
+#
+###########################################################################
+
+Name: Process ping | JSON
+Type: JqAgent
+Schedule: Never
+Controllers: 
+Keep events: 6 hours
+Sources: BLOG status checker, SKY status checker
+Propagate immediately: No
+Receivers: Format ping | HTML
+Scenarios: Fetch financial information
+
+Options:
+
+{
+  "filter": "{ \"url\": .url, \"message\":  ( if( .response_received == true ) then \"Þjónustan svarar\" else \"Þjónustan svarar EKKI\" end ) }",
+  "variables": {}
+}

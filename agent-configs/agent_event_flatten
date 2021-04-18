@@ -1,0 +1,21 @@
+#
+#   Configurations for event flattening in preparation of email sending
+#
+###########################################################################
+
+Name: Flatten collection
+Type: JqAgent
+Schedule: Never
+Controllers: 
+Keep events: 6 hours
+Sources: Collect events
+Propagate immediately: No
+Receivers: Deliver email report
+Scenarios: 
+
+Options:
+
+{
+  "filter": "{message: .message}",
+  "variables": {}
+}

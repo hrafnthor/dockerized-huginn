@@ -1,0 +1,21 @@
+#
+#   Configurations for email sending trigger. Create one for each time when a digest should be sent
+#
+###########################################################################
+
+Name: Trigger digest | <various times>
+Type: CommanderAgent
+Schedule: <Depends on the agent>
+Controllers: None
+Control targets: Collected events
+Keep events: 6 hours
+Sources: None
+Propagate immediately: No
+Receivers: None
+Scenarios: 
+
+Options:
+
+{
+  "action": "run"
+}

@@ -1,0 +1,21 @@
+#
+# 	Configurations for financial information update trigger
+#
+###########################################################################
+
+Name: Trigger financial info update
+Type: CommanderAgent
+Schedule: Never
+Controllers: Trigger update | 8:00, Trigger update | 11:00, Trigger update | 16:00
+Control targets: Update authorization token, Scrape inflation & FOREX, Fetch 30 day info for Lausafjarssjodur, Fetch 30 day info for IS Rikissafn
+Keep events: 6 hour
+Sources:
+Propagate immediately: No
+Receivers:
+Scenarios: None
+
+Options:
+
+{
+  "action": "run"
+}

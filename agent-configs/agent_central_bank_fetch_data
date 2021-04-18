@@ -1,0 +1,41 @@
+#
+#   Configurations for inflation and forex data fetch
+#
+###########################################################################
+
+Name: Scrape inflation & FOREX
+Type: WebsiteAgent
+Schedule: Never
+Controllers: Trigger financial info update
+Keep events: 6 hours
+Sources: None
+Propagate immediately: No
+Receivers: Add date field
+Scenarios: Fetch financial information
+
+Options:
+
+{
+  "expected_update_period_in_days": "1",
+  "url": "https://www.sedlabanki.is/",
+  "type": "html",
+  "mode": "all",
+  "extract": {
+    "index": {
+      "xpath": "//html//body//div[1]//main//div[1]//div[4]//div[1]//div[1]//a//div[1]//text()",
+      "value": "."
+    },
+    "usd": {
+      "xpath": "//html//body//div[1]//main//div[1]//div[4]//div[2]//ul//li[1]//div[2]//text()",
+      "value": "."
+    },
+    "eur": {
+      "xpath": "//html//body//div[1]//main//div[1]//div[4]//div[2]//ul//li[3]//div[2]//text()",
+      "value": "."
+    },
+    "gbp": {
+      "xpath": "//html//body//div[1]//main//div[1]//div[4]//div[2]//ul//li[2]//div[2]//text()",
+      "value": "."
+    }
+  }
+}

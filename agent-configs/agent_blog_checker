@@ -1,0 +1,20 @@
+#
+#   Configurations for blog domain checker
+#
+###########################################################################
+
+Name: BLOG status checker
+Type: HttpStatusAgent
+Schedule: Never
+Controllers: Trigger domain status checks
+Keep events: 1 day
+Sources: None
+Propagate immediately: No
+Receivers: Process ping | JSON
+Scenarios: 
+
+Options:
+
+Url: https://www.hth.is
+Disable redirect follow: False
+Changes only: Manual input

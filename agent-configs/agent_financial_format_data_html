@@ -1,0 +1,24 @@
+#
+# 	Configurations for financial information formatting  in HTML
+#
+###########################################################################
+
+Name: Format fund data | HTML
+Type: EventFormattingAgent
+Schedule: Never
+Controllers: None
+Keep events: 6 hour
+Sources: Format fund data | JSON
+Propagate immediately: No
+Receivers: Collect events
+Scenarios: Fetch financial information
+
+Options:
+
+{
+  "instructions": {
+    "message": "<h3>{{name}}</h3><h4>{{date}}</h4><p><ul><li>24 hour change: {{day_change)}}</li><li>7 day change: {{(week_change}}</li><li>30 day change: {{month_change)}}</li></ul></p>"
+  },
+  "matchers": [],
+  "mode": "clean"
+}

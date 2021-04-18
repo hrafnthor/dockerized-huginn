@@ -1,0 +1,21 @@
+#
+#   Configurations for event email sending
+#
+###########################################################################
+
+Name: Deliver email report
+Type: EmailDigestAgent
+Schedule: Every 10 min
+Controllers: None
+Keep events: 1 day
+Sources: Flatten collection
+Propagate immediately: No
+Receivers: None
+Scenarios: 
+
+Options:
+
+{
+  "subject": "Lykiltölur",
+  "expected_receive_period_in_days": "1"
+}

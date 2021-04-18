@@ -1,0 +1,29 @@
+#
+# 	Configurations for blueshell information scrape
+#
+###########################################################################
+
+Name: Scrape blueshell advice
+Type: WebsiteAgent
+Schedule: Never
+Controllers: Trigger update | 8:00
+Keep events: 1 hour
+Sources: None
+Propagate immediately: No
+Receivers: Format blueshell advice
+Scenarios: None
+
+Options:
+
+{
+  "expected_update_period_in_days": "1",
+  "url": "https://www.mast.is/is/um-mast/eftirlitsnidurstodur/thorungaeitur-i-skelfiski",
+  "type": "html",
+  "mode": "all",
+  "extract": {
+    "advice": {
+      "xpath": "/html/body/div[1]/div/div/div/main/div[1]/div[2]/div/div/ul[2]/li[1]",
+      "value": "./node()"
+    }
+  }
+}

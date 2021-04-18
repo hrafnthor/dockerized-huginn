@@ -1,0 +1,21 @@
+#
+#   Configurations for trading data flattening
+#
+###########################################################################
+
+Name: Flatten trading data | ICEAIR
+Type: JqAgent
+Schedule: Never
+Controllers: None
+Keep events: 1 hour
+Sources: Fetch trading data | ICEAIR
+Propagate immediately: No
+Receivers: Process trading data | JSON
+Scenarios: Fetch financial information
+
+Options:
+
+{
+  "filter": ".data[0]",
+  "variables": {}
+}
